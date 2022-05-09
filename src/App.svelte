@@ -1,12 +1,10 @@
 <script>
-	import Calculator from "./Calculator.svelte";
+	import Display from './components/Display.svelte'
 </script>
 
 <main>
-  <Calculator/>
-
+  <Display />
 </main>
-
 
 <style>
   main {
