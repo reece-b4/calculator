@@ -47,7 +47,7 @@
   function handleOperatorClick(input) {
     let operator = "";
     if (input.hasOwnProperty("isTrusted")) {
-      operator = target.value.toString();
+      operator = input.target.value.toString();
     } else {
       operator = input;
     }
