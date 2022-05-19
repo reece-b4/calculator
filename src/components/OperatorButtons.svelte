@@ -151,11 +151,13 @@
   }
 
   #opButtons {
+    /* padding:0; */
+    /* margin:0; */
     pointer-events: none;
     width: 100%;
     height: 40vh;
     display: grid;
-    z-index: 1000;
+    z-index: 1;
     position: absolute;
     grid-template-areas: 
     ". . h e"

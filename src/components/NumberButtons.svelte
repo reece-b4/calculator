@@ -3,7 +3,7 @@
   export let output = "0";
   export let isOutputAnswer = false;
   export let outputLastElement = output[output.length - 1];
-  const gridTemplateArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+  const gridTemplateArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l']
 
   function onKeydown({keyCode}) {
     switch (keyCode) {
@@ -104,7 +104,7 @@
     display: grid;
     height: 40vh;
     grid-template-areas: 
-    ". . . ."
+    "k l . ."
     "h i j ." 
     "e f g ." 
     "b c d ." 
@@ -114,7 +114,7 @@
   }
 
   button {
-    background-color: rgb(91, 189, 176);
+    background-color: #5bbdb0;
     border-color: black;
     border-radius: 5px;
     margin: 0;
@@ -122,3 +122,5 @@
     padding: 0;
   }
 </style>
+
+<!-- added an extra letter to gridTemplateArr to add number button at top (number 10) to stop button alignment issue!!!!! -->

@@ -43,8 +43,9 @@
 
   #previousEquationsSection {
     position: absolute;
-    width: 100vw;
+    /* width: 100vw; */
     height: 100%;
+    padding:0;
     bottom: 0;
     -webkit-mask-image: linear-gradient(to top, black 90%, transparent 100%);
     mask-image: linear-gradient(to top, black 90%, transparent 100%);
