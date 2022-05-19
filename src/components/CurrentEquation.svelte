@@ -28,6 +28,9 @@
   #currentEquation {
     margin: 0;
     padding: 0;
+    /* border-style: solid; */
+    border-radius: 5px;
+    /* border-width: 1px; */
     background: chocolate;
     height: 43vh;
   }
