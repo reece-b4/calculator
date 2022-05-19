@@ -1,17 +1,20 @@
 <script>
-	import Display from './components/Display.svelte'
+  import Header from './components/Header.svelte'
+  import CurrentEquation from "./components/CurrentEquation.svelte";
+  import Equations from "./components/Equations.svelte";
 </script>
 
 <main>
-  <Display />
+  <Header />
+  <Equations />
+  <CurrentEquation />
 </main>
 
 <style>
   main {
     text-align: center;
-    padding: 1em;
-    max-width: 240px;
     margin: 0 auto;
+    padding: 0;
   }
 
   /* h1 {

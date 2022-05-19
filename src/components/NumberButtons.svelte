@@ -3,9 +3,10 @@
   export let output = "0";
   export let isOutputAnswer = false;
   export let outputLastElement = output[output.length - 1];
+  const gridTemplateArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
 
-  function onKeydown(e) {
-    switch (e.keyCode) {
+  function onKeydown({keyCode}) {
+    switch (keyCode) {
       case 96:
       case 48:
         handleNumClick(0);
@@ -90,8 +91,34 @@
   }
 </script>
 
-{#each Array(10) as num, i}
-  <button value={i} on:click={handleNumClick}>{i}</button>
-{/each}
+<div id="numButtons">
+  {#each  gridTemplateArr as gridPosition, i}
+    <button value={i} style="grid-area: {gridPosition}" on:click={handleNumClick}>{i}</button>
+  {/each}
+</div>
 
 <svelte:window on:keydown={onKeydown} />
+
+<style>
+  #numButtons {
+    display: grid;
+    height: 40vh;
+    grid-template-areas: 
+    ". . . ."
+    "h i j ." 
+    "e f g ." 
+    "b c d ." 
+    "m a o .";
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  button {
+    background-color: rgb(91, 189, 176);
+    border-color: black;
+    border-radius: 5px;
+    margin: 0;
+    font-size: 3em;
+    padding: 0;
+  }
+</style>
