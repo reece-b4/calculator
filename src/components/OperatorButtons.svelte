@@ -4,9 +4,10 @@
   export let isOutputAnswer = false;
   export let outputLastElement = output[output.length - 1];
   const operatorsArr = [".", "+", "-", "×", "÷", "=", "C", "<"];
+  const gridTemplateArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
 
-  function onKeydown(e) {
-    switch (e.keyCode) {
+  function onKeydown({keyCode}) {
+    switch (keyCode) {
       case 13:
         handleOperatorClick("=");
         break;
@@ -38,6 +39,7 @@
         break;
       case 27:
         $equations = [];
+        break;
       case 8:
       case 46:
         handleOperatorClick("<");
@@ -131,16 +133,47 @@
     let str = '"use strict";return (' + output.join("") + ")";
     str = str.replace("÷", "/");
     str = str.replace("×", "*");
-    $equations = [...$equations, output.join("") + "=" + Function(str)()];
+    $equations = [output.join("") + "=" + Function(str)(), ...$equations];
     output = [Function(str)().toString()];
     isOutputAnswer = true;
   }
 </script>
 
-{#each operatorsArr as operator}
-  <button id={operator} value={operator} on:click={handleOperatorClick}
+<style>
+  button {
+    pointer-events: all;
+    border-radius: 5px;
+    border-color: black;
+    background-color: cadetblue;
+    margin: 0;
+    font-size: 3em;
+    padding: 0;
+  }
+
+  #opButtons {
+    pointer-events: none;
+    width: 100%;
+    height: 40vh;
+    display: grid;
+    z-index: 1000;
+    position: absolute;
+    grid-template-areas: 
+    ". . h e"
+    ". . . d" 
+    ". . . c" 
+    ". . . b" 
+    "g . a f";
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+</style>
+
+<div id='opButtons' onMouseDown={ (event) => event.stopPropagation()}>
+{#each operatorsArr as operator, i}
+  <button id={operator} value={operator} style="grid-area: {gridTemplateArr[i]}" on:click={handleOperatorClick}
     >{operator}</button
   >
 {/each}
+</div>
 
 <svelte:window on:keydown={onKeydown} />
