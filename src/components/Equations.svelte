@@ -43,7 +43,7 @@
 
   #previousEquationsSection {
     position: absolute;
-    /* width: 100vw; */
+    width: 100vw;
     height: 100%;
     padding:0;
     bottom: 0;
@@ -75,4 +75,14 @@
     font-size: 1.5em;
     padding: 0.2em;
   }
+
+  @media only screen and (min-width: 600px) {
+    #previousEquationsSection {
+    width: 39.5vw;
+  }
+
+    #innerEquationsSection {
+      width: 100%;
+    }
+}
 </style>
