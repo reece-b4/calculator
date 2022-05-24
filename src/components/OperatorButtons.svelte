@@ -4,9 +4,9 @@
   export let isOutputAnswer = false;
   export let outputLastElement = output[output.length - 1];
   const operatorsArr = [".", "+", "-", "×", "÷", "=", "C", "<"];
-  const gridTemplateArr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+  const gridTemplateArr = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
 
-  function onKeydown({keyCode}) {
+  function onKeydown({ keyCode }) {
     switch (keyCode) {
       case 13:
         handleOperatorClick("=");
@@ -28,6 +28,7 @@
       case 189:
         handleOperatorClick("-");
         break;
+      case 190:
       case 110:
         handleOperatorClick(".");
         break;
@@ -143,43 +144,44 @@
   }
 </script>
 
+<div id="opButtons" onMouseDown={(event) => event.stopPropagation()}>
+  {#each operatorsArr as operator, i}
+    <button
+      id={operator}
+      value={operator}
+      style="grid-area: {gridTemplateArr[i]}"
+      on:click={handleOperatorClick}>{operator}</button
+    >
+  {/each}
+</div>
+
+<svelte:window on:keydown={onKeydown} />
+
 <style>
   button {
     pointer-events: all;
     border-radius: 5px;
     border-color: black;
-    background-color: cadetblue;
+    background-color: #9BC1BC;
     margin: 0;
     font-size: 3em;
     padding: 0;
   }
 
   #opButtons {
-    /* padding:0; */
-    /* margin:0; */
     pointer-events: none;
     width: 100%;
     height: 40vh;
     display: grid;
     z-index: 1;
     position: absolute;
-    grid-template-areas: 
-    ". . h e"
-    ". . . d" 
-    ". . . c" 
-    ". . . b" 
-    "g . a f";
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      ". . h e"
+      ". . . d"
+      ". . . c"
+      ". . . b"
+      "g . a f";
+    grid-template-rows: repeat(5, 20%);
+    grid-template-columns: repeat(4, 25%);
   }
 </style>
-
-<div id='opButtons' onMouseDown={ (event) => event.stopPropagation()}>
-{#each operatorsArr as operator, i}
-  <button id={operator} value={operator} style="grid-area: {gridTemplateArr[i]}" on:click={handleOperatorClick}
-    >{operator}</button
-  >
-{/each}
-</div>
-
-<svelte:window on:keydown={onKeydown} />

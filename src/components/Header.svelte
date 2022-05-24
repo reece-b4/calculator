@@ -1,15 +1,10 @@
-<style>
+<h1>Calculator</h1>
 
-    h2 {
+<style>
+  h1 {
     margin: 0;
-    padding: 0.3em;
-    background-color: cadetblue;
-    height: 7vw;
-    }
+    background-color: #9BC1BC;
+    border-radius: 5px;
+  }
 
 </style>
-
-
-<h2>
-    Calculator
-</h2>
