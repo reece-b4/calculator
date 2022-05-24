@@ -23,16 +23,14 @@
   p {
     margin: 0;
     padding: 0;
+    padding-left: 0.2em;
   }
 
   #currentEquation {
     margin: 0;
     padding: 0;
-    /* border-style: solid; */
     border-radius: 5px;
-    /* border-width: 1px; */
-    background: chocolate;
-    height: 43vh;
+    background: #E6EBE0;
   }
 
   #equationOutput {
@@ -40,7 +38,7 @@
     flex-direction: column-reverse;
     overflow-y: scroll;
     overflow-wrap: break-word;
-    background-color: coral;
+    background-color: #ED6A5A;
     border-radius: 5px;
     border-style: solid;
     border-color: black;
