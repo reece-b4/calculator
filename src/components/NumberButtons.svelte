@@ -52,11 +52,13 @@
 
   function handleNumClick(number) {
     let buttonNum = "";
+    // if number is from screen button click
     if (number.hasOwnProperty("isTrusted")) {
       const {
         target: { value },
       } = number;
       buttonNum = value.toString();
+      // if number is from keypress
     } else {
       buttonNum = number.toString();
     }

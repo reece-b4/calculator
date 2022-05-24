@@ -76,13 +76,17 @@
   }
 
   function addDecimal() {
+    // if last character isn't already a decimal
     if (!output[output.length - 1].match(/\./)) {
+      // if last element is an operator include the 0
       if ($plusMinusTimesDivide.includes(outputLastElement)) {
         output[output.length - 1] += "0.";
       } else {
+        // if last element is a number add the decimal only
         output[output.length - 1] += ".";
       }
     }
+    isOutputAnswer = false;
   }
 
   function addOperator(operator) {
