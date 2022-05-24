@@ -32,7 +32,7 @@
   #display {
     position: relative;
     flex:1;
-    background-color: #5D576B;
+    background-color: #84799c;
     margin: 0;
     padding: 0;
     border-radius: 5px;
